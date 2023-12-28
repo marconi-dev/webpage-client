@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marconi S. de Jesus</title>
+    <style>
+        body {
+            color: rgba(0, 0, 0, 0.750);
+            font-size: 1.1rem;
+        }
+        li.xp-item > h4 {
+            margin-bottom: -10px;
+            padding: 0;
+        }
+        #projects-container {
+            display: flex; 
+            flex-wrap: wrap; 
+            max-width: 700px;
+            height: 500px;
+            justify-content: space-between;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <!-- PROFILE -->
+    <section id="profile" style="max-width: 700px; margin: auto; padding: 15px;">
+        <img 
+            id="profile-picture"
+            style="max-width: auto; height: 50vh; margin: auto; display: block;" 
+            alt="
+            Um homem utilizando uma camisa preta, fones de ouvido, 
+            cabelo cacheado com tamanho médio e sentado numa cadeira. 
+            Imagem de perfil
+            "
+        >
+        <h1 style="text-align: center;" id="profile-name"></h1>
+        <h3 style="text-align: center; max-width: 700px" id="profile-titles"></h3>
+        <small style="text-align: center; display: block; margin-bottom: 15px;">
+            <q>O sonho das pessoas não tem fim</q>
+        </small>
+        <nav>
+            <ul style="
+                padding: 0; 
+                display: flex; 
+                justify-content: space-between;
+                flex-wrap: wrap;
+                list-style-type: none; 
+                max-width: 400px;
+                margin: auto;
+            "
+                id="profile-links-list"
+            >
+            </ul>
+        </nav>
+        <a style="
+            margin: 20px auto 0; 
+            max-width: 400px; 
+            display: block;
+            " 
+            href="/me.html"
+        >
+            saiba mais sobre mim
+        </a>
+    </section>
+
+
+    <!-- EXPERIENCE -->
+    <section id="xp" style="max-width: 700px; margin: 50px auto; padding: 10px;">
+        <h2 style="text-align: center;">Experiência Profissional</h2>
+        <div>
+          <h3>
+            <a href="https://strawti.com/" target="_blank">StrawTI</a> 
+            <br>
+            <small><i>Desenvolvedor Backend Python</i> - desde Julho de 2023</small>
+          </h3>
+          <p style="text-align: left;">
+            Trabalho na criação de novas features e manutenção de uma aplicação web feita
+            em Django REST. <br>
+            Realizo reuniões de alinhamento com a equipe e com o cliente para cumprir as 
+            demandas e contribuir com sugestões para o futuro da aplicação. <br>
+            Crio ferramentas para auxiliar em tarefas de rotina. <br>
+            Escrevo código de acordo com as boas práticas de desenvolvimento do ecossistema
+            Python, utilizo técnicas para tornar a aplicação mais performática assim agregando valor
+            ao produto do cliente.
+          </p>
+          <ul style="list-style-type: none;">
+            <li class="xp-item">
+              <h4>Python & Django | Django REST Framework</h4>
+              <p>
+                O backend é feito em Django e expõe uma API REST usando o 
+                Django REST.
+              </p>
+            </li>
+            <li class="xp-item">
+              <h4>PostgreSQL | PostGIS</h4>
+              <p>
+                Banco relacional usado no projeto. PostGIS adiciona 
+                suporte a features de geolocalização.
+              </p>
+            </li>
+            <li class="xp-item">
+              <h4>MongoDB</h4>
+              <p>
+                Banco de dados de documento usado para criação de pipelines que 
+                revelam dados úteis para o cliente.
+              </p>
+            </li>
+            <li class="xp-item">
+              <h4>Profiling</h4>
+              <p>
+                Para controle e redução do uso de recursos do servidor
+                são feitas análises para identificação de gargalos e vazamentos
+                de memória.
+              </p>
+            </li>
+            <li class="xp-item">
+              <h4>Testes</h4>
+              <p>
+                Criação de testes utilizando a suíte de teste do Django 
+                e testes de carga usando Locust.</p>
+            </li>
+            <li class="xp-item">
+              <h4>Integração com serviços de terceiros</h4>
+              <p>
+                Integração com <i>Firebase</i>, <i>Twilio</i> e <i>AWS</i>.
+              </p>
+            </li>
+            <li class="xp-item">
+              <h4>Outras tecnologias usadas</h4>
+              <p>
+                <i>Heroku</i>, <i>Bash</i>, <i>Git</i>, <i>GitLab</i>, 
+                <i>GitHub</i>, <i>Docker</i> e <i>docker-compose</i>
+              </p>
+            </li>
+            <li class="xp-item">
+              <h4>Tecnologias da equipe</h4>
+              <p>
+                O frontend é em Angular usando TypeScript e o mobile é feito em Flutter.
+              </p>
+            </li>
+          </ul>
+        </div>
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="xp" style="max-width: 700px; margin: 0 auto; padding: 10px;">
+        <h2 style="text-align: center;">Projetos</h2>
+        <form method="GET" id="projects-form" style="margin-bottom: 30px;">
+            <label for="project-type">tipos de projeto:</label> <br>
+            <select style="font-size: large; text-align: center; min-width: 30%; padding: 10px;"id="project-type" name="project-type" value="all">
+                <option value="all">todos</option>
+                <option value="fun">por diversão</option>
+                <option value="backend">back-end</option>
+                <option value="cs">ciência da computação</option>
+            </select>
+        </form>
+        <div id="projects-container"></div>
+      </section>
+    
+    <script src="/js/utils.js"></script>
+    <script src="/js/profile.js"></script>
+    <script src="/js/projects.js"></script>
+    <script>
+        async function getData(url) 
+        {
+            try 
+            {
+                const response = await fetch(url)
+                const data = await response.json()
+                return data
+            } 
+            catch (err) {console.log(err)}
+        }
+        const _URL = 'http://localhost:8000'
+        
+        async function main() 
+        {
+            profile()
+            projects()
+        }
+        main()
+    </script>
+</body>
+</html>
