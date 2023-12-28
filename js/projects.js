@@ -2,9 +2,28 @@ async function projects()
 {
     url = _URL + '/projects'
 
-    data = await getData(url)
+    data = await getProjects(url)
     data.forEach(project => appendProject(project));
 }
+
+async function getProjects(url)
+// fetch every projects if cache is expired and set their cache 
+// or return them directly from localStorage
+{
+    if (cacheIsExpired('projects')) 
+    {
+        const default_url = _URL + '/projects'
+        const data = await getData(default_url)
+        setCache('projects', data)
+        return data
+    }
+
+    const storageData = localStorage.getItem('projects')
+    const data = JSON.parse(storageData)
+    return data
+}
+
+
 
 async function appendProject(project) 
 {
@@ -96,22 +115,34 @@ function appendProjectLinks(projContainer, id, sourceCodeURL, deployURL)
 }
 
 const projectType = document.querySelector("#project-type")
-projectType.addEventListener('change', (e) => filterProjects(e))
-async function filterProjects(event)
-{
+projectType.addEventListener('change', (e) => replaceProjects(e))
 
+async function replaceProjects(event)
+{
     const container = document.querySelector("#projects-container")
     const newContainer = document.createElement("div")
     newContainer.id = container.id
-
+    
     container.parentNode.replaceChild(newContainer, container)
     
     newContainer.innerHTML = "<h3>Carregando...</h3>"
-
-    const url = _URL + `/projects?project_type=${event.target.value}`
-    const data = await getData(url)
     
+    const url = _URL + `/projects?project_type=${event.target.value}`
+    const data = await getProjects(url)
     newContainer.innerHTML = ""
     
-    data.forEach(project => appendProject(project))
+    const projects = filterProjects(event, data)
+    projects.forEach(project => appendProject(project))
+}
+
+function filterProjects(event, data) {
+    const target = event.target
+    
+    if (target.id === "project-type" && target.value !== "all")
+    {
+        data = data.filter(project => {
+            return project.project_type == target.value
+        })
+    }
+    return data
 }

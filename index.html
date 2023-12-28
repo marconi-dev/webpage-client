@@ -162,20 +162,17 @@
       </section>
     
     <script src="/js/utils.js"></script>
+    <script src="/js/cache.js"></script>
     <script src="/js/profile.js"></script>
     <script src="/js/projects.js"></script>
     <script>
         async function getData(url) 
         {
-            try 
-            {
-                const response = await fetch(url)
-                const data = await response.json()
-                return data
-            } 
-            catch (err) {console.log(err)}
+          const response = await fetch(url)
+          const data = await response.json()
+          return data
         }
-        const _URL = 'http://localhost:8000'
+        const _URL = 'http://192.168.1.64:8000'
         
         async function main() 
         {

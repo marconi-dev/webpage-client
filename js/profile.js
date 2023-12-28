@@ -1,3 +1,35 @@
+async function profile() 
+{
+    const url = _URL + '/'
+    const data = await getProfile(url)
+
+    if (data == undefined) return
+    
+    appendProfilePictureSrc(url, data.image)
+
+    const name = document.querySelector("h1#profile-name")
+    name.textContent = data.name
+
+    const titles = document.querySelector("h3#profile-titles")
+    titles.textContent = data.titles
+
+    appendLinks(data.links)
+}
+
+async function getProfile(url) 
+{
+    if (cacheIsExpired('profile')) 
+    {
+        const default_url = _URL + '/'
+        const data = await getData(default_url)
+        setCache('profile', data)
+        return data
+    }
+
+    const storageData = localStorage.getItem('profile')
+    const data = JSON.parse(storageData)
+    return data
+}
 
 function appendProfilePictureSrc(url, image) 
 {
@@ -14,19 +46,6 @@ function appendProfilePictureSrc(url, image)
     element.src = url + image
 }
 
-function appendName(name)
-{
-    const element = document.querySelector("h1#profile-name")
-    element.textContent = name
-}
-
-function appendTitles(titles) 
-{
-    const element = document.querySelector("h3#profile-titles")
-    element.textContent = titles
-}
-
-
 function appendLinks(links) 
 {
     const ul = document.querySelector("ul#profile-links-list")
@@ -42,18 +61,4 @@ function appendLinks(links)
         listItem.appendChild(linkAnchor)
         ul.appendChild(listItem)
     })
-}
-
-
-async function profile() 
-{
-    const url = _URL + '/'
-    const data = await getData(url)
-
-    if (data == undefined) return
-    
-    appendProfilePictureSrc(url, data.image)
-    appendName(data.name)
-    appendTitles(data.titles)
-    appendLinks(data.links)
 }
