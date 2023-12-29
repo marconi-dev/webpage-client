@@ -19,7 +19,7 @@ async function getData(url)
   return data
 }
 
-async function getImageURL(imageURL)
+function getImageURL(imageURL)
 // Fetch image from local server or external source
 {
     if (imageURL === null) return
@@ -31,5 +31,5 @@ async function getImageURL(imageURL)
     }
 
     // This will append the server's url when running in localhost
-    return _URL + image
+    return _URL + imageURL
 }
