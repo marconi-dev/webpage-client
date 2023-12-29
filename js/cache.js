@@ -1,3 +1,6 @@
+const defaulProjectCachingTime = 5*1000 // 24 hours
+console.warn('using 5s cache')
+
 function cacheIsExpired(cacheName) 
 {
     const cacheStorage = localStorage.getItem('cache')
@@ -62,4 +65,47 @@ Stores the given data and update cache information
         cacheExpirationTime: cacheData[cacheName].cacheExpirationTime
     }
     localStorage.setItem('cache', JSON.stringify(cacheData))
+}
+
+function projectCacheIsExpired(projID)
+// Cache for specific project
+// read cacheIsExpired() for better comprehension
+{
+    const cacheStorage = localStorage.getItem("projCache")
+    if (cacheStorage === null)
+    {
+        localStorage.setItem('projCache', JSON.stringify({}))
+        return true
+    }
+    const cache = JSON.parse(cacheStorage)
+
+    if (cache[projID] === undefined) return true
+    
+    const cacheExpirationDate = (
+        cache[projID].cachedAt + 
+        defaulProjectCachingTime
+    )
+
+    if (cacheExpirationDate < new Date()) 
+    {
+        console.log('old project')
+        return true
+    }
+
+    console.log('fetching project')
+    return false
+}
+
+function setProjectCache(projID, data)
+// Stores the given data and update project cache information
+{
+    localStorage.setItem(projID, JSON.stringify(data))
+    const cacheStorage = localStorage.getItem('projCache')
+    const cache = JSON.parse(cacheStorage)
+    cache[projID] = {
+        cachedAt: Date.now(),
+        cacheExpirationTime: defaulProjectCachingTime
+    }
+    console.log('herer')
+    localStorage.setItem('projCache', JSON.stringify(cache))
 }

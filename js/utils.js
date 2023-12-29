@@ -11,3 +11,25 @@ function formatDate(dateString)
     const month = date.toLocaleDateString('pt-BR', {month: 'long'})
     return `${month.substring(0, 3).toUpperCase()}/${year}`
 }
+
+async function getData(url) 
+{
+  const response = await fetch(url)
+  const data = await response.json()
+  return data
+}
+
+async function getImageURL(imageURL)
+// Fetch image from local server or external source
+{
+    if (imageURL === null) return
+    
+    if (imageURL.includes('https://')) 
+    {
+        // This will handle images when running in prod
+        return imageURL
+    }
+
+    // This will append the server's url when running in localhost
+    return _URL + image
+}
