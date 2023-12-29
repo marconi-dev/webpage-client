@@ -6,24 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Marconi S. de Jesus</title>
     <style>
-        body {
-            color: rgba(0, 0, 0, 0.750);
-            font-size: 1.1rem;
-            font-family: 'Times New Roman', Times, serif;
-        }
-        li.xp-item > h4 {
-            margin-bottom: -10px;
-            padding: 0;
-        }
-        #projects-container {
-            display: flex; 
-            flex-wrap: wrap; 
-            max-width: 700px;
-            height: 500px;
-            justify-content: space-between;
-            overflow-y: scroll;
-            text-align: justify;
-        }
+      body {
+        color: rgba(0, 0, 0, 0.750);
+        font-size: 1.1rem;
+        font-family: 'Times New Roman', Times, serif;
+      }
+      li.xp-item > h4 {
+        margin-bottom: -10px;
+        padding: 0;
+      }
+      #projects-container {
+        display: flex; 
+        flex-wrap: wrap; 
+        max-width: 700px;
+        height: 500px;
+        justify-content: space-between;
+        overflow-y: scroll;
+        text-align: justify;
+      }
+      #xp>form>div>select {
+        margin-top: 5px;
+        margin-bottom: 15px;
+        font-size: large; 
+        text-align: center;
+        width: auto;
+        padding: 10px;
+      }
     </style>
 </head>
 <body>
@@ -151,15 +159,22 @@
     <!-- PROJECTS -->
     <section id="xp" style="max-width: 700px; margin: 0 auto; padding: 10px;">
         <h2 style="text-align: center;">Projetos</h2>
-        <form method="GET" id="projects-form" style="margin-bottom: 30px;">
-          <label for="project-type">tipos de projeto:</label> <br>
-          <select style="font-size: large; text-align: center; min-width: 30%; padding: 10px;"id="project-type" name="project-type" value="all">
-            <!-- pto stands for project type option -->
-            <option id="pto-all" value="all">todos</option>
-            <option id="pto-fun" value="fun">por diversão</option>
-            <option id="pto-backend" value="backend">back-end</option>
-            <option id="pto-cs" value="cs">ciência da computação</option>
-          </select>
+        <form method="GET" id="projects-form" style="margin-bottom: 30px; max-width: 400px; margin: auto;">
+          <div>
+            <label for="project-type">Tipos de projeto:</label> <br>
+            <select id="project-type" name="project-type" value="all">
+              <!-- pto stands for project type option -->
+              <option id="pto-all" value="all">todos</option>
+              <option id="pto-fun" value="fun">por diversão</option>
+              <option id="pto-backend" value="backend">back-end</option>
+              <option id="pto-cs" value="cs">ciência da computação</option>
+            </select>
+          </div>
+          <div>
+            <label for="project-techs">Tecnologias <small>(segure ctrl)</small>:</label> <br>
+            <select id="project-techs" name="project-techs" multiple="multiple">
+            </select>
+          </div>
         </form>
         <div id="projects-container"></div>
       </section>
@@ -169,9 +184,11 @@
     <script src="/js/cache.js"></script>
     <script src="/js/profile.js"></script>
     <script src="/js/projects.js"></script>
+    <script src="/js/techs.js"></script>
     <script>
-        profile()
-        projects()
+      profile()
+      techs()
+      projects()
     </script>
 </body>
 </html>

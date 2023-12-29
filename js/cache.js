@@ -1,4 +1,4 @@
-const defaulProjectCachingTime = 5*1000 // 24 hours
+const defaultProjectCachingTime = 5*1000 // 24 hours
 console.warn('using 5s cache')
 
 function cacheIsExpired(cacheName) 
@@ -43,6 +43,10 @@ function getCacheSettings()
         projects: {
             cachedAt: 0,
             cacheExpirationTime: 5*1000 // 30 min
+        },
+        techs: {
+            cachedAt: 0,
+            cacheExpirationTime: 5*1000 // 24 hours
         }
     }
 
@@ -83,7 +87,7 @@ function projectCacheIsExpired(projID)
     
     const cacheExpirationDate = (
         cache[projID].cachedAt + 
-        defaulProjectCachingTime
+        defaultProjectCachingTime
     )
 
     if (cacheExpirationDate < new Date()) 
@@ -104,7 +108,7 @@ function setProjectCache(projID, data)
     const cache = JSON.parse(cacheStorage)
     cache[projID] = {
         cachedAt: Date.now(),
-        cacheExpirationTime: defaulProjectCachingTime
+        cacheExpirationTime: defaultProjectCachingTime
     }
     console.log('herer')
     localStorage.setItem('projCache', JSON.stringify(cache))

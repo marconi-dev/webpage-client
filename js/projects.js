@@ -8,7 +8,10 @@ async function projects()
 function setupProjectType()
 {
     const projectType = document.querySelector("#project-type")
-    projectType.addEventListener('change', (e) => replaceProjects(e))
+    projectType.addEventListener('change', (event) => {
+        setQueryParam('projectType', event.target.value)
+        replaceProjects()
+    })
     
     const currentURL = new URLSearchParams(window.location.search)
     const projectTypeValue = currentURL.get('projectType')
@@ -23,6 +26,7 @@ async function getProjects()
     {
         const defaultUrl = _URL + '/projects'
         let data = await getData(defaultUrl)
+        data = concatenateTechIDs(data)
         setCache('projects', data)
         data = filterProjects(data)
         return data
@@ -31,6 +35,19 @@ async function getProjects()
     const storageData = localStorage.getItem('projects')
     let data = JSON.parse(storageData)
     data = filterProjects(data)
+    return data
+}
+
+function concatenateTechIDs(data)
+/*
+add a field in each project containing tech ids
+to be filtered eventualy.
+*/
+{
+    data.map((project) => {
+        const IDsArray = project.tecnologies.map(tech => tech.id)
+        project.techIDs = IDsArray
+    })
     return data
 }
 
@@ -123,19 +140,18 @@ function appendProjectLinks(projContainer, id, sourceCodeURL, deployURL)
     projContainer.appendChild(deploy)
 }
 
-async function replaceProjects(event)
+async function replaceProjects()
 {
     const container = document.querySelector("#projects-container")
     const newContainer = document.createElement("div")
-    
+
     newContainer.id = container.id
     container.parentNode.replaceChild(newContainer, container)
     
-    newContainer.innerHTML = "<h3>Carregando...</h3>"
-    setQueryParam('projectType', event.target.value)
+    newContainer.innerHTML = "<p>carregando...</p"
     const projects = await getProjects()
     newContainer.innerHTML = ""
-    
+
     projects.forEach(project => appendProject(project))
 }
 
@@ -145,14 +161,9 @@ function filterProjects(data) {
     if (projectType && projectType !== 'all')
         data = data.filter(project => project.project_type == projectType)
     
-    const techs = params.getAll('tech')
-    if (techs)
-        data = filterAgainstProjectTechs(techs, data)
-
-    return data
-}
-
-function filterAgainstProjectTechs(techs, data)
-{
+    const techs = params.getAll('projectTechs')
+    techs.forEach((techID) => {
+        data = data.filter((project) => project.techIDs.includes(techID))
+    })
     return data
 }

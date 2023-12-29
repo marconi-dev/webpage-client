@@ -38,7 +38,18 @@ function setQueryParam(param, value)
 {
     const currentURL = new URL(window.location.href)
     currentURL.searchParams.set(param, value)
+   
+    if (Array.isArray(value))
+    {
+        // clean old params
+        for (const key of currentURL.searchParams.keys())
+            if (key == param) currentURL.searchParams.delete(key)
+
+        value.forEach((item) => {
+            currentURL.searchParams.append(param, item)
+        })
+    }
 
     const newURL = currentURL.toString()
-    window.history.replaceState({ path: newURL }, '', newURL);
+    window.history.replaceState({ path: newURL }, '', newURL)
 }
