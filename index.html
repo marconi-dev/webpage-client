@@ -152,13 +152,14 @@
     <section id="xp" style="max-width: 700px; margin: 0 auto; padding: 10px;">
         <h2 style="text-align: center;">Projetos</h2>
         <form method="GET" id="projects-form" style="margin-bottom: 30px;">
-            <label for="project-type">tipos de projeto:</label> <br>
-            <select style="font-size: large; text-align: center; min-width: 30%; padding: 10px;"id="project-type" name="project-type" value="all">
-                <option value="all">todos</option>
-                <option value="fun">por diversão</option>
-                <option value="backend">back-end</option>
-                <option value="cs">ciência da computação</option>
-            </select>
+          <label for="project-type">tipos de projeto:</label> <br>
+          <select style="font-size: large; text-align: center; min-width: 30%; padding: 10px;"id="project-type" name="project-type" value="all">
+            <!-- pto stands for project type option -->
+            <option id="pto-all" value="all">todos</option>
+            <option id="pto-fun" value="fun">por diversão</option>
+            <option id="pto-backend" value="backend">back-end</option>
+            <option id="pto-cs" value="cs">ciência da computação</option>
+          </select>
         </form>
         <div id="projects-container"></div>
       </section>

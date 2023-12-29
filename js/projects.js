@@ -1,29 +1,38 @@
 async function projects()
 {
-    url = _URL + '/projects'
-
-    data = await getProjects(url)
+    setupProjectType()
+    data = await getProjects()
     data.forEach(project => appendProject(project));
 }
 
-async function getProjects(url)
-// fetch every projects if cache is expired and set their cache 
-// or return them directly from localStorage
+function setupProjectType()
+{
+    const projectType = document.querySelector("#project-type")
+    projectType.addEventListener('change', (e) => replaceProjects(e))
+    
+    const currentURL = new URLSearchParams(window.location.search)
+    const projectTypeValue = currentURL.get('projectType')
+
+    if (projectTypeValue) 
+        projectType.value = projectTypeValue
+}
+
+async function getProjects()
 {
     if (cacheIsExpired('projects')) 
     {
-        const default_url = _URL + '/projects'
-        const data = await getData(default_url)
+        const defaultUrl = _URL + '/projects'
+        let data = await getData(defaultUrl)
         setCache('projects', data)
+        data = filterProjects(data)
         return data
     }
 
     const storageData = localStorage.getItem('projects')
-    const data = JSON.parse(storageData)
+    let data = JSON.parse(storageData)
+    data = filterProjects(data)
     return data
 }
-
-
 
 async function appendProject(project) 
 {
@@ -114,35 +123,36 @@ function appendProjectLinks(projContainer, id, sourceCodeURL, deployURL)
     projContainer.appendChild(deploy)
 }
 
-const projectType = document.querySelector("#project-type")
-projectType.addEventListener('change', (e) => replaceProjects(e))
-
 async function replaceProjects(event)
 {
     const container = document.querySelector("#projects-container")
     const newContainer = document.createElement("div")
-    newContainer.id = container.id
     
+    newContainer.id = container.id
     container.parentNode.replaceChild(newContainer, container)
     
     newContainer.innerHTML = "<h3>Carregando...</h3>"
-    
-    const url = _URL + `/projects?project_type=${event.target.value}`
-    const data = await getProjects(url)
+    setQueryParam('projectType', event.target.value)
+    const projects = await getProjects()
     newContainer.innerHTML = ""
     
-    const projects = filterProjects(event, data)
     projects.forEach(project => appendProject(project))
 }
 
-function filterProjects(event, data) {
-    const target = event.target
+function filterProjects(data) {
+    const params = new URLSearchParams(window.location.search)
+    const projectType = params.get('projectType')
+    if (projectType && projectType !== 'all')
+        data = data.filter(project => project.project_type == projectType)
     
-    if (target.id === "project-type" && target.value !== "all")
-    {
-        data = data.filter(project => {
-            return project.project_type == target.value
-        })
-    }
+    const techs = params.getAll('tech')
+    if (techs)
+        data = filterAgainstProjectTechs(techs, data)
+
+    return data
+}
+
+function filterAgainstProjectTechs(techs, data)
+{
     return data
 }

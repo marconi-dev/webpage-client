@@ -33,3 +33,12 @@ function getImageURL(imageURL)
     // This will append the server's url when running in localhost
     return _URL + imageURL
 }
+
+function setQueryParam(param, value)
+{
+    const currentURL = new URL(window.location.href)
+    currentURL.searchParams.set(param, value)
+
+    const newURL = currentURL.toString()
+    window.history.replaceState({ path: newURL }, '', newURL);
+}
