@@ -37,11 +37,11 @@ function getCacheSettings()
 {
     const settings = {
         profile: {
-            cachedAt: Date.now(),
+            cachedAt: 0,
             cacheExpirationTime: 5*1000 // 24 hours
         },
         projects: {
-            cachedAt: Date.now(),
+            cachedAt: 0,
             cacheExpirationTime: 5*1000 // 30 min
         }
     }
