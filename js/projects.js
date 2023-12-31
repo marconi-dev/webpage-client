@@ -130,9 +130,9 @@ function appendProjectLinks(projContainer, id, sourceCodeURL, deployURL)
     projContainer.appendChild(details)
 
     const deploy = document.createElement('a')
-    deploy.href = sourceCodeURL
+    deploy.href = deployURL
     deploy.target = '_blank'
-    deploy.text = 'código'
+    deploy.text = 'acesse'
     deploy.style.marginRight = '10px'
 
     projContainer.appendChild(details)
