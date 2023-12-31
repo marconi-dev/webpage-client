@@ -47,6 +47,10 @@ function getCacheSettings()
         techs: {
             cachedAt: 0,
             cacheExpirationTime: 5*1000 // 24 hours
+        },
+        latestArticles: {
+            cachedAt: 0,
+            cacheExpirationTime: 5*1000 // 30 min
         }
     }
 

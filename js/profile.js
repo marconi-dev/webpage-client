@@ -52,6 +52,7 @@ function appendLinks(links)
     links.forEach(link => {
         const listItem = document.createElement('li')
         listItem.style.marginTop = "10px"
+        listItem.style.marginRight = "5px"
         
         const linkAnchor = document.createElement('a')
         linkAnchor.href = link.url
