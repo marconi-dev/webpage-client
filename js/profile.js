@@ -1,11 +1,10 @@
 async function profile() 
 {
-    const url = _URL + '/'
-    const data = await getProfile(url)
+    const data = await getProfile(  )
 
     if (data == undefined) return
     
-    appendProfilePictureSrc(url, data.image)
+    appendProfilePictureSrc(_URL, data.image)
 
     const name = document.querySelector("h1#profile-name")
     name.textContent = data.name
@@ -20,7 +19,7 @@ async function getProfile(url)
 {
     if (cacheIsExpired('profile')) 
     {
-        const default_url = _URL + '/'
+        const default_url = _URL + '/profile/'
         const data = await getData(default_url)
         setCache('profile', data)
         return data
@@ -35,15 +34,7 @@ function appendProfilePictureSrc(url, image)
 {
     if (image === null) return
     const element = document.querySelector("img#profile-picture")
-    
-    if (image.includes('https://')) 
-    {
-        // This will handle s3 images when running in prod
-        element.src = image
-    }
-
-    // This will append the server's url when running in localhost
-    element.src = url + image
+    element.src = getImageURL(image)
 }
 
 function appendLinks(links) 

@@ -1,1 +1,1 @@
-const _URL = 'http://localhost:8000'
+const _URL = 'http://localhost:8000/v1'

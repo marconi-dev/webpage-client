@@ -45,7 +45,7 @@ to be filtered eventualy.
 */
 {
     data.map((project) => {
-        const IDsArray = project.tecnologies.map(tech => tech.id)
+        const IDsArray = project.technologies.map(tech => tech.id)
         project.techIDs = IDsArray
     })
     return data
