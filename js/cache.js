@@ -51,6 +51,10 @@ function getCacheSettings()
         latestArticles: {
             cachedAt: 0,
             cacheExpirationTime: 5*1000 // 30 min
+        },
+        latestStudies: {
+            cachedAt: 0,
+            cacheExpirationTime: 5*1000 // 30 min
         }
     }
 
