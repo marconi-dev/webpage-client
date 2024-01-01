@@ -22,12 +22,12 @@ async function projectDetail()
     name.textContent = data.name
 
     const description = document.querySelector("#project-description")
-    description.textContent = data.short_description + data.short_description
-    console.warn('using short description instead of full description. Implement at backend')
+    description.textContent = data.description
 
     appendAssets(data.assets)
     listTechs(data.techs)
     appendTechs(data.techs)
+    appendProjectDetails(data.details)
 }
 
 async function getProjectDetail()
@@ -47,15 +47,25 @@ async function getProjectDetail()
 function appendAssets(assets)
 {
     const assetsContainer = document.querySelector("#project-assets")
+    if (assets.length == 0)
+    {
+        assetsContainer.remove()
+        return
+    }
     assets.forEach(asset => {
         const assetItem = document.createElement("div")
 
         const assetTitle = document.createElement("h3")
+        assetTitle.style.marginBottom = "5px"
         assetTitle.textContent = asset.title
         assetItem.appendChild(assetTitle)
 
         const assetImage = document.createElement('img')
-        assetImage.src = getImageURL(asset.image)
+        const mobileImgURL = getImageURL(asset.mobile_image)
+        const imageURL = getImageURL(asset.image)
+        assetImage.srcset = `${mobileImgURL} 600w, ${imageURL} 2000w`
+        assetImage.src = getImageURL(imageURL)
+        assetImage.alt = asset.alter_text
         assetItem.appendChild(assetImage)
         
         const assetDescription = document.createElement('p')
@@ -97,5 +107,28 @@ function appendTechs(techs)
             techContainer.appendChild(tech)
         }
 
+    })
+}
+
+function appendProjectDetails(details)
+{
+    const detailsContainer = document.querySelector("#project-details")
+    if (details.length == 0)
+    {
+        detailsContainer.remove()
+        return
+    }
+    details.forEach(detail => {
+        const detailItem = document.createElement('div')
+        
+        const detailTitle = document.createElement('h3')
+        detailTitle.textContent = detail.title
+        detailItem.appendChild(detailTitle)
+
+        const detailsDescription = document.createElement('p')
+        detailsDescription.textContent = detail.description
+        detailItem.appendChild(detailsDescription)
+        
+        detailsContainer.appendChild(detailItem)
     })
 }
