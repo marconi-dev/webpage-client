@@ -1,5 +1,4 @@
-const defaultProjectCachingTime = 5*1000 // 24 hours
-console.warn('using 5s cache')
+const defaultProjectCachingTime = 24*60*60*1000 // 24 hours
 
 function cacheIsExpired(cacheName) 
 {
@@ -25,11 +24,8 @@ function cacheIsExpired(cacheName)
     // Cache data is old data
     if (cacheExpirationDate < new Date()) 
     {
-        console.log("old data")
         return true
     }
-
-    console.log('not expired')
     return false
 }
 
@@ -38,28 +34,25 @@ function getCacheSettings()
     const settings = {
         profile: {
             cachedAt: 0,
-            cacheExpirationTime: 5*1000 // 24 hours
+            cacheExpirationTime: 24*60*60*1000 // 24 hours
         },
         projects: {
             cachedAt: 0,
-            cacheExpirationTime: 5*1000 // 30 min
+            cacheExpirationTime: 30*60*1000 // 30 min
         },
         techs: {
             cachedAt: 0,
-            cacheExpirationTime: 5*1000 // 24 hours
+            cacheExpirationTime: 24*60*60*1000 // 24 hours
         },
         latestArticles: {
             cachedAt: 0,
-            cacheExpirationTime: 5*1000 // 30 min
+            cacheExpirationTime: 30*60*1000 // 30 min
         },
         latestStudies: {
             cachedAt: 0,
-            cacheExpirationTime: 5*1000 // 30 min
+            cacheExpirationTime: 30*60*1000 // 30 min
         }
     }
-
-    console.warn("Cache is 5s for testing porpouses")
-
     const cacheSettings = JSON.stringify(settings)
     return cacheSettings
 }
@@ -100,11 +93,8 @@ function projectCacheIsExpired(projID)
 
     if (cacheExpirationDate < new Date()) 
     {
-        console.log('old project')
         return true
     }
-
-    console.log('fetching project')
     return false
 }
 
@@ -118,6 +108,5 @@ function setProjectCache(projID, data)
         cachedAt: Date.now(),
         cacheExpirationTime: defaultProjectCachingTime
     }
-    console.log('herer')
     localStorage.setItem('projCache', JSON.stringify(cache))
 }

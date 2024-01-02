@@ -3,7 +3,6 @@ async function latestStudies()
     const data = await getLatestStudies()
 
     if (data == undefined) return
-    console.log('studies', data)
     
     const studiesContainer = document.querySelector("#studies-container")
     data.forEach(study => {

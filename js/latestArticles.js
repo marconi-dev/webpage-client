@@ -3,7 +3,6 @@ async function latestArticles()
     const data = await getLatestArticles()
 
     if (data == undefined) return
-    console.log(data)
     
     const articlesContainer = document.querySelector("#articles-container")
     data.forEach(article => {
