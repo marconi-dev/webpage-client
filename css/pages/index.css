@@ -4,15 +4,16 @@
   font-family: 'Roboto', sans-serif;
 }
 body {
-  color: rgb(20, 20, 20);
+  color: rgba(0, 0, 0, 0.750);
   font-family: 'Times New Roman', Times, serif;
   font-size: 1.3rem;
 }
 
 /* PROFILE */
-section#profile {
+section {
+  padding: 0px 15px;
   max-width: 800px;
-  margin: auto;
+  margin: 0px auto 50px;
 }
 
 #profile-pic-container {
@@ -82,9 +83,26 @@ a {
   }
 }
 
-@media (min-width: 900px) {
-  section#profile {
-    max-width: 800px;
-    margin: auto;
-  }
+/* EXPERIENCE */
+#xp-company-name>a {
+  max-width: fit-content;
+}
+#xp-company-name {
+  margin-bottom: 0px;
+}
+#xp-description {
+  text-align: justify;
+}
+
+#xp-techs {
+  list-style-type: none;
+  padding: 0px 15px;
+}
+
+#xp-techs>li>h4 {
+  margin-bottom: 5px;
+}
+
+#xp-techs>li>p {
+  margin: 0px;
 }

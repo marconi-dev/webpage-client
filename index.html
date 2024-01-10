@@ -6,27 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/pages/index.css" rel="stylesheet">
     <link href="css/components/loading.css" rel="stylesheet">
-    <script src="/js/frontend/pages/index/profile.js" defer type="module"></script>
+    <script src="/js/frontend/pages/index/index.js" defer type="module"></script>
   </head>
   <body>
     <main>
+
       <section id="profile">
         <div id="profile-pic-container">
           <img id="profile-pic">
         </div>
         <div id="profile-info">
           <h1 id="profile-name"></h1>
-          <small id="profile-sentence"><q>O sonho das pessoas não tem fim</q></small>
+          <small id="profile-sentence"><q></q></small>
           <p id="profile-titles"></p>
           <div id="profile-links">
-            
             <ul id="profile-links-list">
               <li>
-                <a href="/pages/me.html" id="profile-about-me-link">saiba mais sobre mim</a>
+                <a href="/pages/me.html" id="profile-about-me-link"></a>
               </li>
             </ul>
           </div>
         </div>
+      </section>
+
+
+      <section id="experience">
+        <h1 id="xp-title"></h1>
+        <div id="xp-container">
+          <h3 id="xp-company-name"><a></a></h3>
+          <small id="xp-role-date"></small>
+        </div>
+        <p id="xp-description"></p>
+        <ul id="xp-techs"></ul>
       </section>
 
    </main>
