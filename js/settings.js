@@ -1,1 +1,1 @@
-const _URL = 'https://webpage-api.fly.dev/v1'
+export const baseURL = 'http://localhost:8000'
