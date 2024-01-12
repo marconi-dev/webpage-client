@@ -19,7 +19,7 @@ export async function loadProfile()
     titles.textContent = data.titles
 
     const aboutMeLink = document.querySelector("#profile-about-me-link")
-    aboutMeLink.textContent = "saiba mais sobre mim"
+    aboutMeLink.textContent = "sobre mim"
     
     const linksList = document.querySelector("#profile-links-list")
     data.links.forEach((link) => {

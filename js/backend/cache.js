@@ -45,3 +45,7 @@ class BaseCache
 export class ProfileCache extends BaseCache {
     constructor(){super("profileCache", 5*min)}
 }
+
+export class ProjectsCache extends BaseCache {
+    constructor(){super("projectCache", 5*min)}
+}
