@@ -4,5 +4,7 @@ export const DB = new Dexie('Portfolio')
 DB.version(1).stores({
     profile: "id++",
     projects: "id",
-    techs: "id"
+    techs: "id",
+    latestArticles: "id",
+    latestStudies: "id"
 })

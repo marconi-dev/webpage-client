@@ -10,9 +10,8 @@ async function _projectsData()
     const projectsURL = baseURL + '/v1/projects/'
     const res = await fetch(projectsURL)
     const projects = await res.json()
-    const data = projects.map((project => {
+    projects.forEach((project => {
         project.technologies = getProjectTechIDs(project)
-        return project
     }))
     return projects 
 }
