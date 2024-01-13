@@ -14,6 +14,22 @@ export function loadExperience()
     const description = document.querySelector("#xp-description")
     description.innerHTML = "Trabalho na criação de novas features e manutenção de uma aplicação web feita em Django REST.<br>Realizo reuniões de alinhamento com a equipe e com o cliente para cumprir as demandas e contribuir com sugestões para o futuro da aplicação.<br>Crio ferramentas para auxiliar em tarefas de rotina.<br>Escrevo código de acordo com as boas práticas de desenvolvimento do ecossistema Python, utilizo técnicas para tornar a aplicação mais performática assim agregando valor ao produto do cliente."
 
+    const viewMore = document.querySelector("#xp-view-more")
+    viewMore.textContent = "mais detalhes"
+    viewMore.addEventListener('click', () => {
+        // toggle techList display type
+        const section = document.querySelector("#experience")
+        const techList = document.querySelector("#xp-techs")
+        if (techList.style.display == "block")
+        {
+            viewMore.innerHTML = "mais detalhes"
+            return techList.style.display = "none"
+        }
+        viewMore.textContent = "menos detalhes"
+        return techList.style.display = "block"
+
+    })
+
     const techs = getTechs()
     const techList = document.querySelector("#xp-techs")
     techs.forEach(tech => {
