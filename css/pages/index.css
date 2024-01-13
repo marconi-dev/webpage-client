@@ -7,6 +7,7 @@
 a {
   color: inherit;
   width: fit-content;
+  text-wrap: nowrap;
   background-color: rgba(50, 50, 50, .15);
   padding: 5px 10px;
   border-radius: 5px;
@@ -191,7 +192,6 @@ section {
 }
 .project-card > p {
   margin: 0;
-  text-align: justify;
 }
 .project-links-container {
   display: flex;
@@ -212,6 +212,9 @@ section {
   }
   #projects-container {
     width: 450px;
+  }
+  .project-card > p {
+    text-align: justify;
   }
 }
 #articles-container, #studies-container {

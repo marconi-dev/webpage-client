@@ -1,6 +1,7 @@
 import {baseURL} from "/js/settings.js";
 import {DB} from "/js/backend/data/main.js";
 import {ProjectsCache} from "/js/backend/cache.js";
+import { bgFetchProjects } from "/js/frontend/pages/index/bgFetch.js";
 
 
 async function _projectsData()
@@ -39,17 +40,22 @@ export async function projectsData()
     
     if (cache.isExpired())
     {
-        cache.updateCache()
         console.log('projects from server')
 
         const projDBData = await _projectsData()
         await DB.projects.bulkPut(projDBData)
+
+        const projIDs = projDBData.map(proj => {return proj.id})
+        localStorage.setItem("projIDs", JSON.stringify(projIDs))
+        bgFetchProjects()
 
         const techsDBData = await _projectsTechs()
         await DB.techs.bulkPut(techsDBData)
 
         const techs = await DB.techs.toArray()
         const projs = await DB.projects.toArray()
+
+        cache.updateCache()
         return [projs, techs]
     }
 

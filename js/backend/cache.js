@@ -52,5 +52,5 @@ export class ProjectsCache extends BaseCache {
 
 export class Latest extends BaseCache {
     // Cache timer for latest Articles and latest Studies
-    constructor(){super("latestCache", 5*sec)}
+    constructor(){super("latestCache", 5*min)}
 }
