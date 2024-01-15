@@ -204,7 +204,7 @@ function appendProject(project, projectsRoot)
     projectCard.appendChild(projectLinksContainer)
     
     const aboutLink = document.createElement("a")
-    aboutLink.href = `/projects.html?projId=${project.id}`
+    aboutLink.href = `/pages/proj.html?projID=${project.id}`
     aboutLink.textContent = "saiba mais"
     projectLinksContainer.appendChild(aboutLink)
 

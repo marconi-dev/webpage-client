@@ -3,15 +3,19 @@ import {baseURL} from "/js/settings.js"
 
 onmessage = async (message) => {
     const projIDs = message.data
-    await projIDs.forEach(projID => fetchProject(projID))
-    postMessage(true)
+    projIDs.forEach(projID => fetchProject(projID))
 }
 
 async function fetchProject(projID)
 // fetch a project, convert its assets to base64 and save to DB
 {
     const projectsURL = baseURL + `/v1/projects/${projID}`
+    
     const res = await fetch(projectsURL)
+
+    if (res.status == 404) 
+        return postMessage(false)
+
     const data = await res.json()
     const assets = data.assets.map(async asset => {
         return [{
@@ -20,12 +24,16 @@ async function fetchProject(projID)
             mobile_image: await downloadImage(asset.mobile_image)
         }]
     })
-    const dbAssets = await Promise.all(assets)
+
+    const dbAssetsArray = await Promise.all(assets)
+    const dbAssets = dbAssetsArray.map(asset => {return asset[0]})
+
     const dbData = {
         ...data,
-        assets: dbAssets.map(asset => {return asset[0]})
+        assets: dbAssets.sort((a, b) => a.position > b.position) // TODO order by position at backend
     }
     DB.projectsDetail.put(dbData)
+    postMessage(dbData)
 }
 
 function downloadImage(imageURL)
@@ -42,3 +50,4 @@ function downloadImage(imageURL)
         reader.onerror = (err) => reject(err)
     })
 }
+

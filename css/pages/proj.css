@@ -1,0 +1,22 @@
+.img-container {
+  margin: auto;
+  max-width: 800px;
+}
+
+.img-container > img {
+  width: 100%;
+}
+
+.card-item {
+  margin-bottom: 30px;
+}
+.card-item > h3 {
+  font-size: 1.4rem;
+  margin-bottom: 5px; 
+}
+
+.card-item > div > p {
+  margin-top: 5px;
+  margin-bottom: 0px;
+  text-align: justify;
+}
