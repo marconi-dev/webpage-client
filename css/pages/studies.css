@@ -8,7 +8,9 @@ header {
   margin-bottom: 20px;
 }
 #studies-form {
-  max-width: 400px;
+  max-width: 430px;
+  padding-left: 15px;
+  padding-right: 15px;
   margin: auto;
   display: flex;
   flex-direction: column;
