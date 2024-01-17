@@ -27,6 +27,10 @@ button {
   margin: 5px 5px 0px 0px; 
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 ::-webkit-scrollbar {
   width: 3px;
 }
