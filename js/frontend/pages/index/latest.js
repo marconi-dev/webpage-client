@@ -1,7 +1,7 @@
 import { formatDate } from "/js/frontend/utils.js";
 import { latestArticlesData, latestStudiesData } from "/js/backend/data/latest.js";
 
-function appendItem(item, container)
+export function appendItem(item, container)
 {
     const itemCard = document.createElement("div")
     itemCard.className = "latest-card"

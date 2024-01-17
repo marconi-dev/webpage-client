@@ -1,0 +1,28 @@
+header {
+  margin-bottom: 50px;
+}
+
+#articles-container {
+  height: 70vh;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+#articles-form {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#articles-input {
+  border: none;
+  background-color: rgba(50, 50, 50, .15);
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+#articles-input:focus {
+  outline: none;
+}
