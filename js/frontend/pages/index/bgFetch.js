@@ -9,14 +9,12 @@ export function bgFetchArticles()
     if (!cache.isExpired() && isTransactionDone(name))
         return
 
-    console.log("bg fetching articles")
 
     startTransaction(name)
     const articlesWorker = new Worker("/js/backend/workers/articles.js", {type: "module"})
     articlesWorker.postMessage(name)
 
     articlesWorker.onmessage = (message) => {
-        console.log("fez")
         if (message.data) completeTransaction(name)
     }
 }
@@ -29,7 +27,6 @@ export function bgFetchStudies()
     if (!cache.isExpired() && isTransactionDone(name))
         return
 
-    console.log("bg fetching studies")
 
     startTransaction(name)
     const studiesWorker = new Worker("/js/backend/workers/studies.js", {type: "module"})
@@ -48,7 +45,6 @@ export function bgFetchProjects()
     if (!cache.isExpired() && isTransactionDone(name))
         return
 
-    console.log("bg fetching projects")
 
     startTransaction(name)
     const projectsWorker = new Worker("/js/backend/workers/projects.js", {type: "module"})

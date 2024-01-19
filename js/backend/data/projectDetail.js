@@ -12,7 +12,6 @@ export function getProject()
         const project = await DB.projectsDetail.get(projID)
         if (project) return resolve(project)
         
-        console.log("loading projectDetail from server")
         const projWorker = new Worker("/js/backend/workers/projects.js", {type: "module"})
         projWorker.postMessage([projID])
         projWorker.onmessage = (message) => {

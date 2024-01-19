@@ -40,7 +40,6 @@ export async function projectsData()
     
     if (cache.isExpired())
     {
-        console.log('projects from server')
 
         const projDBData = await _projectsData()
         await DB.projects.bulkPut(projDBData)
@@ -59,7 +58,6 @@ export async function projectsData()
         return [projs, techs]
     }
 
-    console.log('projects from DB')
     const projs = await DB.projects.toArray()
     const techs = await DB.techs.toArray()
     return [projs, techs]

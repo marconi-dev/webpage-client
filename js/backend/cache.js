@@ -43,14 +43,14 @@ class BaseCache
 }
 
 export class ProfileCache extends BaseCache {
-    constructor(){super("profileCache", 5*min)}
+    constructor(){super("profileCache", 1*day)}
 }
 
 export class ProjectsCache extends BaseCache {
-    constructor(){super("projectCache", 5*min)}
+    constructor(){super("projectCache", 1*hour)}
 }
 
 export class Latest extends BaseCache {
     // Cache timer for latest Articles and latest Studies
-    constructor(){super("latestCache", 5*min)}
+    constructor(){super("latestCache", 30*min)}
 }

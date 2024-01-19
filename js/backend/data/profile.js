@@ -34,14 +34,12 @@ export async function profileData()
     if (cache.isExpired())
     {
         cache.updateCache()
-        console.log('from server')
         const dbData = await _profileData()
         await DB.profile.put(dbData)
         const data = await DB.profile.get(1)
         return data
     }
 
-    console.log('from DB')
     const data = await DB.profile.get(1)
     return data
 }

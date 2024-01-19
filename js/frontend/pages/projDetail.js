@@ -61,7 +61,6 @@ async function main()
     const goBack = document.querySelector("#go-back")
     goBack.textContent = "Voltar"
 
-    console.log(proj.details)
 }
 
 function appendAsset(asset)

@@ -21,7 +21,6 @@ async function latestData()
     if (cache.isExpired())
     {
         cache.updateCache()
-        console.log('lastest from server')
         // studies
         const studiesDBData = await fetchLatest("/v1/studies/latest/")
         await DB.latestStudies.bulkPut(studiesDBData)
@@ -35,7 +34,6 @@ async function latestData()
         return {studies: studies, articles: articles}
     }
 
-    console.log('latest from DB')
     const studies = await DB.latestStudies.toArray()
     const articles = await DB.latestArticles.toArray()
     return {studies: studies, articles: articles}
