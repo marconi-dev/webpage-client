@@ -1,79 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title></title>
+    <title>Marconi's webpage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/pages/index.css" rel="stylesheet">
-    <link href="css/components/loading.css" rel="stylesheet">
-    <script src="/js/frontend/pages/index/index.js" defer type="module"></script>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    p, q, a {
+      font-size: 1.05rem;
+    }
+
+    a {
+      margin-right: 10px;
+    }
+
+    section {
+      padding: 10px;
+      margin: auto; 
+      max-width: 800px; 
+      color: rgba(0, 0, 0, .75);
+    }
+    
+    #desc>p{
+      margin: 7px 0px 7px;
+    }
+    #techs>p{
+      margin: 5px 0px 20px;
+    }
+    </style>
   </head>
   <body>
-    <main>
+    <section id="info">
+        <h1 style="margin: 20px 0px 10px;">Marconi S. de Jesus</h1>
+        <small><q>O sonho das pessoas não tem fim</q></small>
+        <p style="margin: 10px 0px 10px;">Desenvolvedor Backend, cientista da computação, amante de tecnologia e de software livre.</p>
+        <a href="https://instagram.com/marconi.mathcode" target="_blank">Instagram</a>
+        <a href="https://linkedin.com/in/marconi-developer" target="_blank">LinkedIn</a>
+        <a href="https://youtube.com/@marconi-dev" target="_blank">YouTube</a>
+    </section>
+    <section id="xp" style="margin-top: 50px">
+      <h1>Experiência Profissional</h1>
+      <a href="https://strawti.com/" style="display: block;">StrawTI</a>
+      <small><i>Desenvolvedor Backend Python - desde Julho de 2023</i></small>
+      <div id="desc">
+        <p style="margin-top:15px">
+          Trabalho na criação de novas features e manutenção de uma aplicação web feita em Django REST. 
+        <p>
+          Realizo reuniões de alinhamento com a equipe e com o cliente para cumprir as demandas e contribuir com sugestões para o futuro da aplicação.
+        <p>
+          Escrevo código de acordo com as boas práticas de desenvolvimento do ecossistema Python, utilizo técnicas para tornar a aplicação mais performática assim agregando valor ao produto do cliente.
+        <p>
+          Crio ferramentas para auxiliar em tarefas de rotina.
+        </p>
+      </div>
+      <div id="techs" style="padding-left: 25px; margin-top: 20px;">
+        <h3 style="margin-bottom: 10px;">Tecnologias</h3>
 
-      <section id="profile">
-        <div id="profile-pic-container">
-          <img id="profile-pic">
-        </div>
-        <div id="profile-info">
-          <h1 id="profile-name"></h1>
-          <small id="profile-sentence"><q></q></small>
-          <p id="profile-titles"></p>
-          <div id="profile-links">
-            <ul id="profile-links-list">
-              <li>
-                <a href="/pages/me.html" id="profile-about-me-link"></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+        <h4>Python & Django | Django REST Framework</h4>
+        <p>O backend é feito em Django e expõe uma API REST usando o Django REST.</p>
 
+        <h4>PostgreSQL | PostGIS</h4>
+        <p>Banco relacional usado no projeto. PostGIS adiciona suporte a features de geolocalização.</p>
+        
+        <h4>MongoDB</h4>
+        <p>Banco de dados de documento usado para criação de pipelines que revelam dados úteis para o cliente.</p>
 
-      <section id="experience">
-        <h1 id="xp-title"></h1>
-        <div id="xp-container">
-          <h3 id="xp-company-name"><a></a></h3>
-          <small id="xp-role-date"></small>
-        </div>
-        <p id="xp-description"></p>
-        <button type="button" id="xp-view-more"></button>
-        <ul id="xp-techs" style="display: none;"></ul>
-      </section>
+        <h4>Profiling</h4>
+        <p>Para controle e redução do uso de recursos do servidor são feitas análises para identificação de gargalos e vazamentos de memória.</p>
 
+        <h4>Testes</h4>
+        <p>Criação de testes utilizando a suíte de teste do Django e testes de carga usando Locust.</p>
+        
+        <h4>Integração com serviços de terceiros</h4>
+        <p>Integração com FireBase, Twilio e AWS</p>
 
-      <section id="projects">
-        <h1 id="projects-title"></h1>
-        <div id="projects-flex-container">
-          <form id="projects-form">
-            <div id="projects-type-container">
-              <label for="projects-type" id="projects-type-label"></label>
-              <select id="projects-type"></select>
-            </div>
-            <div id="projects-techs-container">
-              <label for="projects-techs" id="projects-techs-label"></label>
-              <select id="projects-techs" multiple></select>
-              <small id="projects-techs-hint"></small>
-            </div>
-          </form>
-          <div id="projects-container"><div id="projects-root"></div></div>
-        </div>
-      </section>
-      
+        <h4>Outras tecnologias usadas</h4>
+        <p>Heroku, Bash, GitLab, GitHub, Docker, docker-compose, ClickUp</p>
+      </div>
 
-
-      <section id="articles">
-        <h1 id="articles-title"></h1>
-        <div id="articles-container"></div>
-        <a href="/pages/articles.html" id="articles-view-more"></a>
-      </section>
-
-
-      <section id="latest-studies">
-        <h1 id="studies-title"></h1>
-        <div id="studies-container"></div>
-        <a href="/pages/studies.html" id="studies-view-more"></a>
-      </section>
-   </main>
+    </section>
+    <section id="WIP" style="margin: 50px auto 100px">
+      <h1 style="margin: 20px 0 10px;">(WIP) Trabalho em andamento!</h1>
+      <p>Infelizmente a PlanetScale não foi pra sempre. </p>
+      <small>E eu preferi mudar a stack dessa aplicação também.</small>
+    </section>
   </body>
 </html>
