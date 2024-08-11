@@ -1,91 +1,252 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <title>Marconi's webpage</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    p, q, a {
-      font-size: 1.05rem;
-    }
 
-    a {
-      margin-right: 10px;
-    }
+<head>
+  <title>Marconi's webpage</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <script defer src="./main.js">
+  </script>
+</head>
 
-    section {
-      padding: 10px;
-      margin: auto; 
-      max-width: 800px; 
-      color: rgba(0, 0, 0, .75);
-    }
-    
-    #desc>p{
-      margin: 7px 0px 7px;
-    }
-    #techs>p{
-      margin: 5px 0px 20px;
-    }
-    </style>
-  </head>
-  <body>
-    <section id="info">
-        <h1 style="margin: 20px 0px 10px;">Marconi S. de Jesus</h1>
-        <small><q>O sonho das pessoas não tem fim</q></small>
-        <p style="margin: 10px 0px 10px;">Desenvolvedor Backend, cientista da computação, amante de tecnologia e de software livre.</p>
-        <a href="https://instagram.com/marconi.mathcode" target="_blank">Instagram</a>
-        <a href="https://linkedin.com/in/marconi-developer" target="_blank">LinkedIn</a>
-        <a href="https://youtube.com/@marconi-dev" target="_blank">YouTube</a>
+<body>
+  <main>
+    <section id="profile">
+      <div id="links-container">
+        <ul id="links-list">
+          <li>
+            <a href="https://github.com/marconi-dev" target="_blank">GitHub</a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/marconi-developer" target="_blank">LinkedIn</a>
+          </li>
+          <li>
+            <a href="https://youtube.com/@marconi-dev" target="_blank">YouTube</a>
+          </li>
+          <li>
+            <a href="https://instagram.com/marconi.mathcode" target="_blank">Instagram</a>
+          </li>
+        </ul>
+        <button id="mail-me">copiar email</button>
+      </div>
+      <div id="info">
+        <h1>Marconi S. de Jesus</h1>
+        <h2>Desenvolvedor BackEnd</h2>
+        <i><q id="profile-quote">O sonho das pessoas não tem fim.</q></i>
+      </div>
+      <img id="avatar" src="./marconi.png" alt="">
     </section>
-    <section id="xp" style="margin-top: 50px">
-      <h1>Experiência Profissional</h1>
-      <a href="https://strawti.com/" style="display: block;">StrawTI</a>
+    <section id="profinfo">
+      <div id="siac">
+        <h1 class="title">O que procuro?</h1>
+        <p>
+          <span class="blue-text">Desenvolvimento contínuo</span>: É inaceitável para mim ser o mesmo
+          profissional que fui mês passado.
+        </p>
+        <p>
+          <span class="blue-text">Uma boa equipe</span>: Bons lideres e companheiros de batalhas confiáveis, que se
+          importam com a qualidade do que está sendo entregue são requisitos obrigatórios.
+        </p>
+        <p>
+          <span class="blue-text">Liberdade criativa</span>: Espero ser livre para, dentro do contexto do
+          produto, contribuir com todas as melhorias que eu puder e ter apoio da equipe na implementação.
+        </p>
+        <p>
+          <span class="blue-text">Ambiente descontraído</span>: Criar software é uma paixão para mim. Por isso
+          acredito que o processo de criação deve ser agradável ainda que com prazos apertados.
+        </p>
+      </div>
+      <div id="profvals">
+        <h1 class="title">Valores profissionais</h1>
+        <p><span class="blue-text">Coragem</span>: Para abraçar desafios com ousadia e buscar soluções inovadoras. </p>
+        <p><span class="blue-text">Sinceridade</span>: Para construir relacionamentos autênticos e baseados na confiança
+          mútua. </p>
+        <p><span class="blue-text">Honestidade</span>: Para agir com integridade em todas as minhas ações, mesmo diante
+          de situações desafiadoras. </p>
+        <p><span class="blue-text">Proatividade</span>: Para antecipar necessidades, propor soluções e buscar
+          constantemente a excelência. </p>
+        <p><span class="blue-text">Empatia</span>: Para promover um ambiente de trabalho colaborativo e respeitoso,
+          valorizando diferentes perspectivas. </p>
+      </div>
+    </section>
+
+    <section id="aboutme">
+      <h1 class="title">Sobre mim</h1>
+      <p>
+        <span class="blue-text">Como tudo começou</span>: Nasci em 2004, na cidade de Governador Valadares - MG. Foi
+        na escola que descobri minha aptidão e amor pela matemática aplicada. Sempre gostei do João que ia no
+        supermerdado comprar 742,5 maçãs nos dias uteis impares do mês, e ficava fascinado em descobrir quantas maçãs
+        ele compraria em cada mês. Hoje sou muito grato por poder ganhar a vida numa atividade similar.
+      </p>
+      <p>
+        <span class="blue-text">Momento atual</span>: Atualmente estou 100% focado em construir uma carreira
+        sólida. Embora eu seja apaixonado por desenvolvimento <small>- cliquê, eu sei -</small> trabalhar como
+        desenvolvedor vai além de programar e se <a href="https://youtu.be/vvCK4N8FBuw" target="_blank">eu quero ser
+          muito bom,</a> tenho que ser muito bom nessas outras atividades da área.
+      </p>
+      <p>
+        <span class="blue-text">Planos Futuros</span>: Ter um ótimo entendimento da maior parte das máquinas
+        que utilizo no dia a dia como programador e desenvolver uma boa rede de contatos que confiem no meu trabalho.
+      </p>
+    </section>
+
+    <section id="articles">
+      <h1 class="title">Artigos recentes</h1>
+      <div id="articles-container">
+        <div class="article-card">
+          <p>Adicionando Discord login e autenticação JWT a uma aplicação Django.</p>
+          <a href="https://www.linkedin.com/pulse/adicionando-discord-login-e-autentica%25C3%25A7%25C3%25A3o-jwt-uma-aplica%25C3%25A7%25C3%25A3o-soares/?trackingId=UAOPyutXQqW5ariiF2Amcg%3D%3D"
+            target="_blank">ler artigo</a>
+        </div>
+        <div class="article-card">
+          <p>
+            Implementando ordenação por características em comum usando a ORM do Django.
+          </p>
+          <a href="https://www.linkedin.com/pulse/implementando-ordena%25C3%25A7%25C3%25A3o-por-caracter%25C3%25ADsticas-em-comum-usando-soares/?trackingId=UAOPyutXQqW5ariiF2Amcg%3D%3D"
+            target="_blank">ler artigo</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="xp">
+      <h1 class="title">Experiência Profissional</h1>
+      <a href="https://strawti.com.br/" target="_blank">StrawTI</a>
       <small><i>Desenvolvedor Backend Python - desde Julho de 2023</i></small>
       <div id="desc">
-        <p style="margin-top:15px">
-          Trabalho na criação de novas features e manutenção de uma aplicação web feita em Django REST. 
         <p>
-          Realizo reuniões de alinhamento com a equipe e com o cliente para cumprir as demandas e contribuir com sugestões para o futuro da aplicação.
+          Trabalho na criação de novas features e manutenção de uma aplicação web feita em Django REST.
         <p>
-          Escrevo código de acordo com as boas práticas de desenvolvimento do ecossistema Python, utilizo técnicas para tornar a aplicação mais performática assim agregando valor ao produto do cliente.
+          Realizo reuniões de alinhamento com a equipe e com o cliente para cumprir as demandas e contribuir com
+          sugestões
+          para o futuro da aplicação.
+        <p>
+          Escrevo código de acordo com as boas práticas de desenvolvimento do ecossistema Python, utilizo técnicas para
+          tornar a aplicação mais performática assim agregando valor ao produto do cliente.
         <p>
           Crio ferramentas para auxiliar em tarefas de rotina.
         </p>
       </div>
-      <div id="techs" style="padding-left: 25px; margin-top: 20px;">
-        <h3 style="margin-bottom: 10px;">Tecnologias</h3>
+      <div id="techs">
+        <h3>Tecnologias</h3>
 
         <h4>Python & Django | Django REST Framework</h4>
         <p>O backend é feito em Django e expõe uma API REST usando o Django REST.</p>
 
         <h4>PostgreSQL | PostGIS</h4>
         <p>Banco relacional usado no projeto. PostGIS adiciona suporte a features de geolocalização.</p>
-        
+
         <h4>MongoDB</h4>
         <p>Banco de dados de documento usado para criação de pipelines que revelam dados úteis para o cliente.</p>
 
         <h4>Profiling</h4>
-        <p>Para controle e redução do uso de recursos do servidor são feitas análises para identificação de gargalos e vazamentos de memória.</p>
+        <p>Para controle e redução do uso de recursos do servidor são feitas análises para identificação de gargalos e
+          vazamentos de memória.</p>
 
         <h4>Testes</h4>
         <p>Criação de testes utilizando a suíte de teste do Django e testes de carga usando Locust.</p>
-        
+
         <h4>Integração com serviços de terceiros</h4>
         <p>Integração com FireBase, Twilio e AWS</p>
 
         <h4>Outras tecnologias usadas</h4>
         <p>Heroku, Bash, GitLab, GitHub, Docker, docker-compose, ClickUp</p>
       </div>
+    </section>
 
+    <section id="projects">
     </section>
-    <section id="WIP" style="margin: 50px auto 100px">
-      <h1 style="margin: 20px 0 10px;">(WIP) Trabalho em andamento!</h1>
-      <p>Infelizmente a PlanetScale não foi pra sempre. </p>
-      <small>E eu preferi mudar a stack dessa aplicação também.</small>
+
+    <section id="skills">
+      <h1 class="title">Habilidades e Tecnologias</h1>
+      <input type="search" name="skill" id="search-skills" placeholder="aperte enter para pesquisar">
+      <ul id="skills-list">
+        <li id="python">
+          <h3>Python</h3>
+          <p>Linguagem de programação</p>
+        </li>
+        <li id="sql">
+          <h3>SQL</h3>
+          <p>Linguagem de pesquisa usada em bancos de dados relacionais.</p>
+        </li>
+        <li id="postgresql">
+          <h3>PostgreSQL</h3>
+          <p>Banco de dados relacional.</p>
+        </li>
+        <li id="html">
+          <h3>HTML</h3>
+          <p>Linguagem de marcação.</p>
+        </li>
+        <li id="javascript js">
+          <h3>JavaScript</h3>
+          <p>Linguagem de scripts para web.</p>
+        </li>
+        <li id="golang">
+          <h3>Golang</h3>
+          <p>Linguagem programação.</p>
+        </li>
+        <li id="linux">
+          <h3>Linux</h3>
+          <p>Sistema operacional.</p>
+        </li>
+        <li id="bash">
+          <h3>Bash</h3>
+          <p>Usado para automatizar tarefas em ambientes Linux.</p>
+        </li>
+        <li id="rabbitmq">
+          <h3>RabbitMQ</h3>
+          <p>Sistema de filas.</p>
+        </li>
+        <li id="mongodb">
+          <h3>MongoDB</h3>
+          <p>Banco de dados de documentos.</p>
+        </li>
+        <li id="redis">
+          <h3>Redis</h3>
+          <p>Banco de dados chave valor.</p>
+        </li>
+        <li id="dart">
+          <h3>Dart</h3>
+          <p>Linguagem de programação</p>
+        </li>
+        <li id="flutter">
+          <h3>Flutter</h3>
+          <p>Framework para criação de aplitivos mobile.</p>
+        </li>
+        <li id="django">
+          <h3>Django</h3>
+          <p>Framework para criação aplicações web.</p>
+        </li>
+        <li id="django-rest-framework drf">
+          <h3>Django REST Framework</h3>
+          <p>Framework para criação APIs rest</p>
+        </li>
+        <li id="docker">
+          <h3>Docker</h3>
+          <p>Tecnologia de conteinerização.</p>
+        </li>
+        <li id="websocket">
+          <h3>WebSockets</h3>
+          <p>Tecnologia para sistema com atualização em tempo real.</p>
+        </li>
+        <li id="webrtc">
+          <h3>WebRTC</h3>
+          <p>Tecnologia para sistema P2P.</p>
+        </li>
+        <li id="git">
+          <h3>GIT</h3>
+          <p>Software de versionamento de código.</p>
+        </li>
+        <li id="amazon-web-services aws">
+          <h3>Amazon Web Services (AWS)</h3>
+          <p>Serviço de computação em nuvem</p>
+        </li>
+        <li id="google-cloud-platform">
+          <h3>Google Cloud Platform (GCP)</h3>
+          <p>Serviço de computação em nuvem</p>
+        </li>
+      </ul>
     </section>
-  </body>
+  </main>
+</body>
 </html>
