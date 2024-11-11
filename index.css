@@ -1,0 +1,187 @@
+/* DEFAULTS */
+section {
+    margin-top: 20px;
+    padding: 15px;
+}
+
+section>div {
+    max-width: 750px;
+    margin: 15px auto 45px;
+}
+
+h1.section-title {
+    font-size: 2rem;
+}
+
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    background-color: var(--bg-color);
+    width: 100%;
+    overflow: hidden;
+    transition: 300ms;
+    height: 70px;
+}
+
+#nav-button-list {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-button {
+    display: block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+.nav-button.active {
+    background-color: var(--main-color);
+    color: var(--sub-alt-color);
+    cursor: default;
+}
+
+@media (max-width: 600px) {
+    header {
+        height: 120px;
+    }
+}
+
+
+/* HOME */
+#home {
+    padding: 0px;
+}
+
+    /* BANNER */
+    div#banner {
+        display: flex;
+        max-width: 100%;
+        margin-bottom: 0px;
+    }
+
+    div#info {
+        display: flex;
+        align-items: center;
+    }
+
+    img#avatar {
+        padding: 15px;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        width: 100px;
+        height: auto;
+    }
+
+    h1#name {
+        font-size: 2rem;
+    }
+
+    h2#role {
+        padding: 0;
+        color: var(--sub-color);
+        margin-top: -5px;
+    }
+
+    #bn-quote {
+        margin-top: 15px;
+        display: block;
+        line-height: 1.3rem;
+    }
+
+    ul#external-links {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    ul#external-links>li {
+        margin-bottom: 10px;
+    }
+
+    @media (max-width: 600px) {
+        div#banner {
+            flex-direction: column;
+        }
+    
+        img#avatar {
+            width: 100px;
+        }
+    
+        h2#role {
+            font-size: 1.1rem;
+        }
+    
+        ul#external-links {
+            flex-direction: row;
+        }
+    
+        ul#external-links>li {
+            margin-right: 15px;
+        }
+    }
+
+    /* ABOUT ME */
+    div#about-me {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    div.about-me-block {
+        margin: 10px auto;
+        max-width: 750px;
+    }
+
+    h2.about-me-question {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    ul#prof-goals {
+        list-style-type: disc;
+        padding-left: 25px;
+    }
+
+    ul#prof-goals>::marker {
+        font-size: 1.7rem;
+
+    }
+
+    #prof-goals>li {
+        margin-bottom: 10px;
+    }
+
+
+/* EXPERIENCE */
+h1#job-title {
+    font-size: 2rem;
+}
+
+small#job-role {
+    display: block;
+    margin-bottom: 20px;
+}
+
+p.job-description {
+    margin-bottom: 15px;
+}
+
+h2#techs-title {
+    margin-top: 30px;
+    font-size: 1.7rem;
+}
+
+h3.tech-title {
+    font-size: 1.2rem;
+}
+
+#role-techs>li {
+    margin-bottom: 25px;
+}
+
+p.tech-description {
+    line-height: 1.6rem;
+}
